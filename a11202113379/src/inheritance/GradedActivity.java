@@ -31,7 +31,6 @@ public class GradedActivity {
     }
     
     public char getGrade(){
-        char Grade = 0;
-        return Grade;
+        return 0;
     }
 }
