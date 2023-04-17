@@ -21,7 +21,6 @@ public class PassFailActivity extends GradedActivity {
     }
    
    public char getGraded(){
-       char Graded = 0;
-       return Graded;
+       return 0;
    }
 }
