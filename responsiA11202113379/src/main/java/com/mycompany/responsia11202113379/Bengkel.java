@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.responsia11202113379;
 
 import java.util.Scanner;
 
-/**
- *
- * @author HP
- */
 public class Bengkel {
     
     static void Menu(){
@@ -25,74 +17,87 @@ public class Bengkel {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         Scanner scanner1 = new Scanner(System.in);
-     
-        
+             
         int pilih;
-        int biaya = 0;
-        int total;
-        int harga = 0;
-        String nama = null;
-        String sp = "Y";
-        String ns = null;
+        int biayaService = 0;
+        int total = 0;
+        String namaService = "";
+        String tambahSparepart = "N";
+        int jmlhSparepart = 0;
+        String[] dataNamaSparepart = new String[10];
+        int[] dataHargaSparepart = new int[10];
+        int hargaSparepart;
+        String namaSparepart;
+        int i;
         
         Menu();
                                 
         System.out.print("Pilih service: ");
         pilih = scanner.nextInt();
+        
         if (pilih==1 || pilih==2 || pilih==3 || pilih==4)
         {
-            biaya=150000;
-            System.out.print("Apakah ada penambahan sparepart? = ");
-            sp = scanner1.nextLine();
+            biayaService=150000;
+            System.out.print("Apakah ada penambahan sparepart? (Y/N) ");
+            tambahSparepart = scanner1.nextLine();
             
             if(pilih==1){
-                nama="Mesin";
+                namaService="Mesin";
             }
             else if(pilih==2){
-                nama="AC";
+                namaService="AC";
             }
             else if(pilih==3){
-                nama="Kelistrikan";
+                namaService="Kelistrikan";
             }
             else if(pilih==4){
-                nama="Pengereman";
+                namaService="Pengereman";
             }
                    
         }
         else if(pilih==5)
         {
-            nama="Check Up";
-            biaya=1200000;
-            sp="n";
+            namaService="Check Up";
+            biayaService=1200000;
         }
         else{
            System.exit(0);
         }
         
-        if (sp.equals("Y") || sp.equals("y"))
-        {
-            
-                
-            System.out.print("Apakah nama sparepartnya? = ");
-            ns = scanner1.nextLine(); 
-            
-            System.out.print("Berapa harganya? = ");
-            harga = scanner.nextInt();
-        }
+        if (tambahSparepart.equalsIgnoreCase("Y"))
+            {
+                System.out.print("Tambah berapa sparepart? = ");
+                jmlhSparepart = scanner.nextInt();
+                for(i=0;i<jmlhSparepart;i++)
+                {
+                    System.out.print("Apakah nama sparepartnya? = ");
+                    namaSparepart = scanner1.nextLine(); 
+                    dataNamaSparepart[i]=namaSparepart;
+
+                    System.out.print("Berapa harganya? = ");
+                    hargaSparepart= scanner.nextInt();
+                    dataHargaSparepart[i]=hargaSparepart;
+                }
+                for(i=0;i<jmlhSparepart;i++)
+                {
+                    total += dataHargaSparepart[i];
+                }
+            }
         
-        total=biaya+harga;
+        total += biayaService;
         
         System.out.println("Laporan:");
         System.out.println("Service Bengkel ABC");
-        System.out.println("Nama Service: "+nama);
-        System.out.println("Nama Sparepart: "+ns);
-        System.out.println("Harga\n: "+harga);
-        System.out.println("Total(jasa+spareparth): "+total);
-        
-        
-        
-        
-        
+        System.out.println("Nama Service: "+namaService);
+        if (tambahSparepart.equalsIgnoreCase("Y"))
+        {
+            System.out.println("Nama Sparepart: ");
+            for(i=0;i<jmlhSparepart;i++)
+            {
+                System.out.println((i+1)+". "+dataNamaSparepart[i]+" = Rp. "+dataHargaSparepart[i]);
+            }
+        }
+        System.out.println("Total Biaya: "+total);
         
     }
 }

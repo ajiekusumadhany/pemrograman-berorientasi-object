@@ -9,8 +9,6 @@ package com.mycompany.tugaspolymorphism;
  * @author HP
  */
 public class Hewan {
-    String jenis;
-    String ciri;
     
     public Hewan(String jenis,String ciri){
         System.out.println("Jenis: "+jenis);

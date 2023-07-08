@@ -23,5 +23,10 @@ public class Singa extends Hewan {
     public void suara() {
         System.out.println("Suara Singa");
     }
+
+  
+
+    
+    
     
 }

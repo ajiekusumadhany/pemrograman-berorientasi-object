@@ -26,5 +26,6 @@ public class testHewan {
           p.suara();
           p.berjalan();
 
+
     }
 }

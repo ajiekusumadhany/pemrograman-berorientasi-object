@@ -9,10 +9,6 @@ package com.mycompany.tugaspolymorphism;
  * @author HP
  */
 class Buku {
-    String judul;
-    String pengarang;
-    String penerbit;
-    int tahun;
 
     public Buku(String judul, String pengarang, String penerbit, int tahun) {
         System.out.println("Judul: " + judul);

@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author HP
  */
-public class Bengkel {
+public class Bengkel1 {
     
     static void Menu(){
         System.out.println("1. Service Mesin");
@@ -30,10 +30,10 @@ public class Bengkel {
         int pilih;
         int biaya = 0;
         int total;
-        int harga = 0;
         String nama = null;
         String sp = "Y";
-        String ns = null;
+        int tbh = 0;
+        int i;
         
         Menu();
                                 
@@ -44,6 +44,8 @@ public class Bengkel {
             biaya=150000;
             System.out.print("Apakah ada penambahan sparepart? = ");
             sp = scanner1.nextLine();
+            System.out.print("Tambah berapa sparepart? = ");
+            tbh = scanner.nextInt();
             
             if(pilih==1){
                 nama="Mesin";
@@ -72,26 +74,31 @@ public class Bengkel {
         if (sp.equals("Y") || sp.equals("y"))
         {
             
+        String[] dataArray = new String[tbh];
+        String[] dataNs = new String[tbh];
+        int[] dataHarga = new int[tbh];
+        int harga;
+        String ns;
+            for(i=0;i<tbh;i++)
+            {
+                System.out.print("Apakah nama sparepartnya? = ");
+                ns = scanner1.nextLine(); 
+                dataNs[i]=ns;
+
+                System.out.print("Berapa harganya? = ");
+                harga = scanner.nextInt();
+                dataHarga[i]=harga;
                 
-            System.out.print("Apakah nama sparepartnya? = ");
-            ns = scanner1.nextLine(); 
-            
-            System.out.print("Berapa harganya? = ");
-            harga = scanner.nextInt();
-        }
-        
-        total=biaya+harga;
+            }
+        total=biaya+dataHarga[i];
         
         System.out.println("Laporan:");
         System.out.println("Service Bengkel ABC");
         System.out.println("Nama Service: "+nama);
-        System.out.println("Nama Sparepart: "+ns);
-        System.out.println("Harga\n: "+harga);
+        System.out.println("Nama Sparepart: "+dataNs[i]);
+        System.out.println("Harga\n: "+dataHarga[i]);
         System.out.println("Total(jasa+spareparth): "+total);
-        
-        
-        
-        
+        }
         
         
     }
